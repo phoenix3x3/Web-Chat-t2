@@ -20,7 +20,6 @@ app.use(express.static(path.join(__dirname, "..", "client", "build")));
 io.on("connection", (socket) => {
   Message.find()
     .sort({ createdAt: -1 })
-    .limit(10) // limit
     .exec((err, messages) => {
       if (err) return console.error(err);
 
